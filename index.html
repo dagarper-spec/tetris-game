@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131f">
+  <meta name="description" content="Un juego de bloques clásico. Completa líneas y consigue la mejor puntuación.">
+  <title>Bloques — Juego de caída</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Bloques, inicio"><span class="brand-mark" aria-hidden="true">▦</span> bloques</a>
+      <span class="top-note">Un clásico de bloques</span>
+    </header>
+
+    <section class="game-layout" aria-label="Juego de bloques">
+      <div class="intro">
+        <p class="eyebrow">JUEGO ARCADE</p>
+        <h1>Piensa rápido.<br><span>Encaja mejor.</span></h1>
+        <p class="intro-copy">Completa líneas horizontales para despejar el tablero. ¿Cuánto puedes aguantar?</p>
+      </div>
+
+      <section class="game-shell" aria-label="Partida">
+        <div class="board-wrap">
+          <div class="board-heading"><span>PARTIDA</span><span id="status" class="status" aria-live="polite">LISTO</span></div>
+          <div class="canvas-frame">
+            <canvas id="board" width="300" height="600" aria-label="Tablero del juego, 10 columnas por 20 filas"></canvas>
+            <div id="overlay" class="overlay">
+              <div class="overlay-card">
+                <span class="overlay-icon" aria-hidden="true">▦</span>
+                <h2 id="overlay-title">¿Listo?</h2>
+                <p id="overlay-copy">Coloca los bloques y completa líneas.</p>
+                <button id="start-button" class="button button-primary">Empezar partida</button>
+              </div>
+            </div>
+          </div>
+          <div class="mobile-controls" aria-label="Controles táctiles">
+            <button class="control-button" data-action="left" aria-label="Mover a la izquierda">←</button>
+            <button class="control-button" data-action="rotate" aria-label="Girar pieza">↻</button>
+            <button class="control-button" data-action="down" aria-label="Bajar pieza">↓</button>
+            <button class="control-button" data-action="right" aria-label="Mover a la derecha">→</button>
+            <button class="control-button drop-button" data-action="drop" aria-label="Soltar pieza">⇊</button>
+          </div>
+        </div>
+
+        <aside class="sidebar" aria-label="Información de la partida">
+          <div class="score-card">
+            <div class="score-label">PUNTUACIÓN</div>
+            <div id="score" class="score-value">0</div>
+            <div class="best-row"><span>Récord</span><strong id="best">0</strong></div>
+          </div>
+          <div class="stats-row">
+            <div class="stat-card"><span class="score-label">LÍNEAS</span><strong id="lines">0</strong></div>
+            <div class="stat-card"><span class="score-label">NIVEL</span><strong id="level">1</strong></div>
+          </div>
+          <div class="next-card">
+            <div class="score-label">SIGUIENTE</div>
+            <canvas id="next" width="120" height="100" aria-label="Vista previa de la siguiente pieza"></canvas>
+          </div>
+          <button id="pause-button" class="button button-secondary" disabled>Pausar <kbd>P</kbd></button>
+          <button id="restart-button" class="text-button">↻ &nbsp;Reiniciar partida</button>
+          <div class="help-card">
+            <div class="score-label">CONTROLES</div>
+            <p><kbd>←</kbd> <kbd>→</kbd> mover</p>
+            <p><kbd>↑</kbd> girar <kbd>↓</kbd> bajar</p>
+            <p><kbd>Espacio</kbd> caída rápida</p>
+            <p><kbd>P</kbd> pausar</p>
+          </div>
+        </aside>
+      </section>
+      <p class="footer-note">Hecho para jugar. Usa las teclas o los controles táctiles.</p>
+    </section>
+  </main>
+</body>
+</html>
